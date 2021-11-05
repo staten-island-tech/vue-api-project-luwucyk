@@ -1,3 +1,7 @@
 https://api.genshin.dev/
 
-idea: genshin teambuilder?
+idea: genshin teambuilder? Character + Weapon select
+
+1 route: list of all genshin charas 
+
+2 route: user input character to add to array, character spawns user input modules for weapon select 
