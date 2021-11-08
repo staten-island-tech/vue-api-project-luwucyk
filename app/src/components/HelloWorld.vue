@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <div> {{characters}}</div>
+    <h1>asdfadfsghasd</h1>
+    <div> wah</div>
   </div>
 </template>
 
@@ -11,25 +11,6 @@ export default {
   props: {
     msg: String
   },
-  data() {
-    return {
-      characters: [],
-    };
-  },
-  created: function () {
-    this.fetchData
-  },
-  methods: {
-    fetchData: async function() {
-      try {
-        const response = await fetch("https://api.genshin.dev/characters/xiao/icon");
-        const data = await response.json();
-        this.characters = data.results;
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }
 }
 </script>
 
