@@ -1,8 +1,7 @@
 <template>
   <div class="character-card">
-      <span>{{characters[0]}}</span>
-      <img class="character-img" src="https://api.genshin.dev/characters/xiao/icon-big" alt="character icon">
-      <h3 class="character-name">idjfskbkbnsg</h3>
+      <img class="character-img" v-bind:src="icon" alt="character icon">
+      <h3 class="character-name">{{characters[0]}}</h3>
   </div>
 
 </template>
@@ -12,18 +11,25 @@ export default {
   data() {
     return {
       characters: ["xiao"],
-      icon: [],
+      icon: ["https://api.genshin.dev/characters/xiao/icon-big"],
     }
   },
 created() {
-    this.birth()
+    this.fetchData()
   },
   methods: {
-    birth: function() {
-      console.log('humu');
-      this.characters = ['albedo'];
+    fetchData: async function() {
+        try {
+          const response = await fetch("https://api.genshin.dev/characters");
+          const data = await response.json();
+          console.log(data);
+          this.characters = data
+          
+      } catch (error) {
+          console.log('error');
+      }
+    },
 
-    }
   }
 
 }
