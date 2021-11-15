@@ -1,7 +1,13 @@
 <template>
-  <div  class="character-card">
-      <img :key="charaList.length" class="character-img" v-bind:src="icon" alt="character icon">
-      <h3 class="character-name">{{characters[0].name}}</h3>
+  <div class="character-list">
+      <div v-for="chara in charaList" :key="chara" v-bind:value="chara">
+         <div class="character-card">
+              <img :key="charaList.length" class="character-img" v-bind:src="charaList.icon" alt="character icon">
+              <h3 class="character-name">{{chara}}</h3>
+
+         </div>
+        
+      </div>
   </div>
 
 </template>
@@ -10,9 +16,9 @@
 export default {
   data() {
     return {
-      charaList: [""],
-      characters: [""],
-      icon: [""],
+      charaList: {"":{icon:""}},
+      character: [""],
+ 
     }
   },
 created() {
@@ -20,24 +26,28 @@ created() {
   },
   methods: {
     fetchData: async function() {
+
+      //icon mcchangerino - charalist is megalist of all charas, then foreach?
         try {
           const response = await fetch('https://api.genshin.dev/characters');
           const data = await response.json();
           this.charaList = data;
-          this.icon = `https://api.genshin.dev/characters/${this.charaList[0]}/icon-big`
+          this.charaList.icon = `https://api.genshin.dev/characters/${this.charaList[37]}/icon-big`;
           
       } catch (error) {
           console.log('error');
       }
       
+      //character data info thingy idk my brain is falling apart?
       try {
         const response = await fetch(`https://api.genshin.dev/characters/${this.charaList[0]}`);
           const data = await response.json();
-          this.characters.push(data);
+          this.character.push(data);
+          console.log
           
 
       } catch (error) {
-          console.log('error');
+          console.log(error);
       }
 
 
@@ -64,5 +74,15 @@ created() {
 
 .character-img {
   height: 80%;
+}
+
+.character-name {
+  text-transform: capitalize;
+}
+
+.character-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
 }
 </style>
