@@ -2,7 +2,7 @@
   <div class="character-list">
       <div v-for="chara in charaList" :key="chara" v-bind:value="chara">
          <div class="character-card">
-              <img :key="charaList.length" class="character-img" v-bind:src="charaList.icon" alt="character icon">
+              <img :key="charaList.length" class="character-img" v-bind:src="icon[chara.length + 1]" alt="character icon">
               <h3 class="character-name">{{chara}}</h3>
 
          </div>
@@ -18,6 +18,7 @@ export default {
     return {
       charaList: {"":{icon:""}},
       character: [""],
+      icon: [""],
  
     }
   },
@@ -32,7 +33,13 @@ created() {
           const response = await fetch('https://api.genshin.dev/characters');
           const data = await response.json();
           this.charaList = data;
-          this.charaList.icon = `https://api.genshin.dev/characters/${this.charaList[37]}/icon-big`;
+          
+          this.charaList.forEach(element => {
+              this.icon.push(`https://api.genshin.dev/characters/${element}/icon-big`) ;
+            
+          });
+
+          console.log(this.charaList);
           
       } catch (error) {
           console.log('error');
@@ -43,7 +50,6 @@ created() {
         const response = await fetch(`https://api.genshin.dev/characters/${this.charaList[0]}`);
           const data = await response.json();
           this.character.push(data);
-          console.log
           
 
       } catch (error) {
