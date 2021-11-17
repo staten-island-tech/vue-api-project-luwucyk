@@ -1,20 +1,18 @@
 <template>
   <div>
 
-      <card/>
+      <Home/>
   </div>
   
 </template>
 
 <script>
-import card from "@/components/card.vue"
+import Home from "@/views/Home.vue"
 export default {
-  components: {
-    card
+components: {
+    Home,
   },
-  
-
-}
+  }
 </script>
 
 <style>
