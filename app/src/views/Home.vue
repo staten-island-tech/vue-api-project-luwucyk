@@ -9,9 +9,11 @@ import card from "@/components/card.vue"
 export default {
 data() {
     return {
-      charaList: [""],
-      character: [""],
-      icon: [],
+      cardDetail: {
+        charaList: [""],
+        character: [""],
+        icon: [],
+        }
  
     }
   },
@@ -28,10 +30,10 @@ created() {
         try {
           const response = await fetch('https://api.genshin.dev/characters');
           const data = await response.json();
-          this.charaList = data;
+          this.cardDetail.charaList = data;
           
-          this.charaList.forEach(element => {
-              this.icon.push(`https://api.genshin.dev/characters/${element}/icon`) ;
+          this.cardDetail.charaList.forEach(element => {
+              this.cardDetail.icon.push(`https://api.genshin.dev/characters/${element}/icon`) ;
             
           });
           
@@ -43,7 +45,7 @@ created() {
       try {
         const response = await fetch(`https://api.genshin.dev/characters/${this.charaList[0]}`);
           const data = await response.json();
-          this.character.push(data);
+          this.cardDetail.character.push(data);
           
 
       } catch (error) {

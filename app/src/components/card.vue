@@ -16,14 +16,10 @@
 
 
 export default {
-  data() {
-    return {
-      charaList: [""],
-      character: [""],
-      icon: [],
- 
-    }
-  },
+  props: {
+   ['charaList'],
+   ['icon']  
+  }
 }
 </script>
 
