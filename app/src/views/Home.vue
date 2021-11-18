@@ -9,8 +9,8 @@ import card from "@/components/card.vue"
 export default {
 data() {
     return {
-      charaList: [""],
-      character: [""],
+      charaList: [],
+      character: [],
       icon: [],
  
     }
