@@ -24,5 +24,8 @@ components: {
 </script>
 
 <style>
+html {
+  background-color: black;
+}
 
 </style>

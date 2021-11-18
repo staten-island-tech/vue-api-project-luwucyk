@@ -73,6 +73,7 @@ export default {
   align-items: center;
   margin: 2rem;
   border-radius: 5%;
+  overflow: hidden;
   
 }
 
