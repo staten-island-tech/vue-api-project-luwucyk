@@ -46,6 +46,7 @@ created() {
         const response = await fetch(`https://api.genshin.dev/characters/${this.charaList[0]}`);
           const data = await response.json();
           this.cardDetail.character.push(data);
+
           
 
       } catch (error) {
@@ -53,6 +54,9 @@ created() {
       }
 
 
+
+      console.log(this.cardDetail.charaList);
+      console.log(this.cardDetail.icon);
     },
   }
 
