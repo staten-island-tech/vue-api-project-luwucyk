@@ -1,9 +1,9 @@
 <template>
   <div class="character-list">
-      <div v-for="chara in cardDetail.charaList" :key="chara" v-bind:value="chara">
+      <div  :key="charaList.length" v-bind:value="charaList">
          <div class="character-card">
-              <img :key="cardDetail.charaList.length" class="character-img" v-bind:src="cardDetail.icon[`${cardDetail.charaList.indexOf(`${chara}`)}`]" alt="character icon">
-              <h3 class="character-name">{{chara}}</h3>
+              <img :key="charaList.length" class="character-img" src=`${{icon[0]}}` alt="character icon">
+              <h3 class="character-name">{{charaList}}</h3>
 
          </div>
         
@@ -16,24 +16,12 @@
 
 
 export default {
-  /* props: {
+   props: {
    charaList: {
-     type: Array
    },
    icon: {
-     type: Array
    } 
-  }*/
-  data() {
-    return {
-      cardDetail: {
-        charaList: [],
-        character: [],
-        icon: [],
-        }
- 
-    }
-  },
+  }
 } 
 </script>
 

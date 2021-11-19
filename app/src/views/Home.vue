@@ -1,26 +1,37 @@
 <template>
-  <div>
-    <card/>
+  <div class="character-list">
+      <div>
+           <card v-for="chara in charaList" :key="chara" v-bind:value="chara" :charaList=chara :icon="icon[`${charaList.indexOf(`${chara}`)}`]" /> 
+         <!-- <div class="character-card">
+              <img :key="charaList.length" class="character-img" v-bind:src="icon[`${charaList.indexOf(`${chara}`)}`]" alt="character icon">
+              <h3 class="character-name">{{chara}}</h3>
+
+         </div> -->
+        
+      </div>
+
+  
   </div>
+
 </template>
 
 <script>
+
 import card from "@/components/card.vue"
+
+
 export default {
-data() {
-    return {
-      cardDetail: {
-        charaList: [""],
-        character: [""],
-        icon: [],
-        }
- 
-    }
-  },
-components: {
+  components: {
     card,
   },
-created() {
+  data() {
+    return {
+      charaList: [],
+      character: [],
+      icon: [],
+    }
+  },
+  created() {
     this.fetchData()
   },
   methods: {
@@ -30,12 +41,18 @@ created() {
         try {
           const response = await fetch('https://api.genshin.dev/characters');
           const data = await response.json();
-          this.cardDetail.charaList = data;
+          this.charaList = data;
           
-          this.cardDetail.charaList.forEach(element => {
-              this.cardDetail.icon.push(`https://api.genshin.dev/characters/${element}/icon`) ;
+          this.charaList.forEach(element => {
+              this.icon.push(`https://api.genshin.dev/characters/${element}/icon`) ;
             
           });
+
+          this.charaList.forEach(element => {
+              this.character.push(`https://api.genshin.dev/characters/${element}`) ;
+            
+          });
+          console.log(this.character);
           
       } catch (error) {
           console.log('error');
@@ -45,8 +62,8 @@ created() {
       try {
         const response = await fetch(`https://api.genshin.dev/characters/${this.charaList[0]}`);
           const data = await response.json();
-          this.cardDetail.character.push(data);
-
+          this.character.push(data);
+          
           
 
       } catch (error) {
@@ -54,15 +71,39 @@ created() {
       }
 
 
-
-      console.log(this.cardDetail.charaList);
-      console.log(this.cardDetail.icon);
     },
   }
-
 }
 </script>
 
 <style>
+.character-card {
+  background-color: rgb(26, 26, 29) ;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 5rem;
+  height: 6rem;
+  padding: 1.5rem;
+  align-items: center;
+  margin: 2rem;
+  border-radius: 5%;
+  overflow: hidden;
+  
+}
 
+.character-img {
+  height: 80%;
+}
+
+.character-name {
+  text-transform: capitalize;
+  margin-top: 0.5rem;
+}
+
+.character-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
 </style>
