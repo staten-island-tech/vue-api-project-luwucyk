@@ -1,5 +1,15 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <h1>ADFGJDFGJKDNFJKGNSDLFJHNLKDFGJ</h1>
 </template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+h1{
+  color: white;
+}
+</style>

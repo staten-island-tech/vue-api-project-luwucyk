@@ -1,14 +1,16 @@
 <template>
-  <div class="character-list">
+<div>
+  <router-link :to="{name: 'About' ,params: {id:'1'}}" class="charaCard">
       <div  :key="charaList.length" v-bind:value="charaList">
          <div class="character-card">
-              <img :key="charaList.length" class="character-img" alt="character icon">
+              <img :key="charaList.length" class="character-img" v-bind:src="icon" alt="character icon">
               <h3 class="character-name">{{charaList}}</h3>
 
          </div>
         
       </div>
-  </div>
+  </router-link>
+</div>
 
 </template>
 
@@ -49,9 +51,4 @@ export default {
   margin-top: 0.5rem;
 }
 
-.character-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap:wrap;
-}
 </style>

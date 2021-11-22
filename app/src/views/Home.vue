@@ -1,6 +1,9 @@
 <template>
-  <div class="character-list">
-      <div>
+  <div class="character-page">
+    
+    <h2>gesnin imapct charctr</h2>
+      <div class="character-list">
+        
            <card v-for="chara in charaList" :key="chara" v-bind:value="chara" :charaList=chara :icon="icon[`${charaList.indexOf(`${chara}`)}`]" /> 
          <!-- <div class="character-card">
               <img :key="charaList.length" class="character-img" v-bind:src="icon[`${charaList.indexOf(`${chara}`)}`]" alt="character icon">
@@ -77,6 +80,26 @@ export default {
 </script>
 
 <style>
+html {
+  background-color: black;
+  color:white
+
+}
+
+.character-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: center;
+  
+}
+
 .character-card {
   background-color: rgb(26, 26, 29) ;
   display: flex;
@@ -101,9 +124,4 @@ export default {
   margin-top: 0.5rem;
 }
 
-.character-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap:wrap;
-}
 </style>
