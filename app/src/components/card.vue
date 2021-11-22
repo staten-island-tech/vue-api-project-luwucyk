@@ -2,7 +2,7 @@
   <div class="character-list">
       <div  :key="charaList.length" v-bind:value="charaList">
          <div class="character-card">
-              <img :key="charaList.length" class="character-img" src=`${{icon[0]}}` alt="character icon">
+              <img :key="charaList.length" class="character-img" alt="character icon">
               <h3 class="character-name">{{charaList}}</h3>
 
          </div>
