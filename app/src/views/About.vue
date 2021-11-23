@@ -1,14 +1,21 @@
 <template>
-  <h1>ADFGJDFGJKDNFJKGNSDLFJHNLKDFGJ</h1>
+  <div>
+    <h1>dhfsgdshfkjhgkjdfng</h1>
+  </div>
 </template>
 
 <script>
 export default {
-
-}
+   props: {
+   charaList: {
+   },
+   icon: {
+   } 
+  }
+} 
 </script>
 
-<style>
+<style scoped>
 h1{
   color: white;
 }

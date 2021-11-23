@@ -2,6 +2,7 @@
   <div>
     <router-link class="link" to="/about">about</router-link> |
     <router-link class="link" to="/">home</router-link>
+      <About/>
       <Home/>
   </div>
   
@@ -9,9 +10,10 @@
 
 <script>
 import Home from "@/views/Home.vue"
+import About from "@/views/About.vue"
 export default {
 components: {
-    Home,
+    Home, About
   },
   }
 </script>
