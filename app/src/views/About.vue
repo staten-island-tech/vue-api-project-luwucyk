@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>dhfsgdshfkjhgkjdfng</h1>
+  <div class="info-page">
     <div class="character-details">
       <span>Name</span>
       <div class="rarity">rarity, use star values?</div>
@@ -26,8 +25,19 @@ h1{
   color: white;
 }
 
+.info-page {
+  margin: 2rem;
+  display: flex;
+
+}
+
 .character-details {
- background-color: red;
+ background-color: rgb(26, 26, 29);
+ margin: 2rem;
+ padding: 1rem;
+ display: flex;
+ flex-direction: column;
+ width: 25%;
 }
 
 </style>
