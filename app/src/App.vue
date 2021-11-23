@@ -1,6 +1,7 @@
 <template>
   <div>
-    <router-link :to="{name: 'About'}">hihihihihi</router-link>
+    <router-link class="link" :to="{name: 'About'}">about</router-link> |
+    <router-link class="link" :to="{name: 'Home'}">home</router-link>
       <Home/>
   </div>
   
@@ -20,6 +21,14 @@ components: {
 
 html, body {
   font-family: 'Roboto', sans-serif;
+}
+
+.link {
+  color: rgb(219, 255, 14);
+}
+
+.link:active {
+  color: white;
 }
 
 </style>

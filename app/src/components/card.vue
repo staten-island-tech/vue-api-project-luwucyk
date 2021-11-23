@@ -1,15 +1,13 @@
 <template>
 <div>
-  <router-link :to="{name: 'About' ,params: {id:'1'}}" class="charaCard">
-      <div  :key="charaList.length" v-bind:value="charaList">
-         <div class="character-card">
+      <div :key="charaList.length" v-bind:value="charaList">
+         <router-link :to="{name: 'About' ,params: {id:'1'}}" class="character-card">
               <img :key="charaList.length" class="character-img" v-bind:src="icon" alt="character icon">
               <h3 class="character-name">{{charaList}}</h3>
 
-         </div>
+         </router-link>
         
       </div>
-  </router-link>
 </div>
 
 </template>
