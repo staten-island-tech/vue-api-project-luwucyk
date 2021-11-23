@@ -48,32 +48,20 @@ export default {
           
           this.charaList.forEach(element => {
               this.icon.push(`https://api.genshin.dev/characters/${element}/icon`) ;
-            
-          });
-
-          this.charaList.forEach(element => {
               this.character.push(`https://api.genshin.dev/characters/${element}`) ;
             
           });
-          console.log(this.character);
+
+          
           
       } catch (error) {
           console.log('error');
       }
       
       //character data info thingy idk my brain is falling apart?
-      try {
-        const response = await fetch(`https://api.genshin.dev/characters/${this.charaList[0]}`);
-          const data = await response.json();
-          this.character.push(data);
-          
-          
+      
 
-      } catch (error) {
-          console.log(error);
-      }
-
-
+console.log(this.character);
     },
   }
 }
