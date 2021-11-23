@@ -2,18 +2,18 @@
   <div>
     <router-link class="link" to="/about">about</router-link> |
     <router-link class="link" to="/">home</router-link>
-      <About/>
-      <Home/>
+    <router-view/>
+      
   </div>
   
 </template>
 
 <script>
-import Home from "@/views/Home.vue"
-import About from "@/views/About.vue"
+/* import Home from "@/views/Home.vue"
+import About from "@/views/About.vue" */
 export default {
 components: {
-    Home, About
+   /*  Home, About */
   },
   }
 </script>
