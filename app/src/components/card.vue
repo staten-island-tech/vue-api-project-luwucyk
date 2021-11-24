@@ -1,7 +1,7 @@
 <template>
 <div>
       <div :key="charaList.length" v-bind:value="charaList">
-         <router-link :to="{name: 'About' ,params: {id:'1'}}" class="character-card">
+         <router-link :to="{name: 'info' ,params: {name:`${charaList}`}}" class="character-card">
               <img :key="charaList.length" class="character-img" v-bind:src="icon" alt="character icon">
               <h3 class="character-name">{{charaList}}</h3>
 
@@ -25,7 +25,7 @@ export default {
 } 
 </script>
 
-<style>
+<style scoped>
 .character-card {
   background-color: rgb(26, 26, 29) ;
   display: flex;

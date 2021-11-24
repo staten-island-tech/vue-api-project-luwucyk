@@ -48,14 +48,13 @@ export default {
           
           this.charaList.forEach(element => {
               this.icon.push(`https://api.genshin.dev/characters/${element}/icon`) ;
-              this.character.push(`https://api.genshin.dev/characters/${element}`) ;
             
           });
 
           
           
       } catch (error) {
-          console.log('error');
+          console.log(error);
       }
       
       //character data info thingy idk my brain is falling apart?
@@ -67,7 +66,7 @@ console.log(this.character);
 }
 </script>
 
-<style>
+<style >
 html {
   background-color: black;
   color:white
