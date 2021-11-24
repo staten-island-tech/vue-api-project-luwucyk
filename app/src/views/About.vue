@@ -3,11 +3,12 @@
     <div class="character-details">
       <div class="name-el">
         <h4 class="title" >{{character.name}}</h4> 
-        <img class="elem-icon" src="https://api.genshin.dev/elements/anemo/icon" alt="element icon">
+        <span class="elem-icon" v-bind:src="character.vision" alt="element">{{character.vision}}</span>
       </div>
-       
       <div class="aff">Affiliation: {{character.affiliation}}</div>
-      
+    </div>
+    <div class="character-stats">
+      <div class="constellations"></div>
     </div>
     <img class="card" :key="character.length" v-bind:src="img" alt="character icon">
   </div>
@@ -17,8 +18,10 @@
 export default {
   data() {
     return {
-      character: [`xiao`],
+      character: [`kokomi`],
       img: [],
+      elIcon:{Anemo: `https://api.genshin.dev/elements/anemo/icon`,
+      Geo: `https://api.genshin.dev/elements/geo/icon`, },
     }
   },
   created() {
@@ -29,10 +32,13 @@ export default {
 
       //icon mcchangerino - charalist is megalist of all charas, then foreach?
         try {
-          const response = await fetch(`https://api.genshin.dev/characters/xiao`);
+          this.img = `https://api.genshin.dev/characters/${this.character}/card` ;
+          const response = await fetch(`https://api.genshin.dev/characters/${this.character}`);
           const data = await response.json();
           this.character = data;
-          this.img = `https://api.genshin.dev/characters/xiao/card` ; 
+/*           const elem = this.character.vision;
+          this.elIcon = `https://api.genshin.dev/elements/${elem}/icon` */
+ 
           console.log(this.character);         
           
       } catch (error) {
@@ -51,15 +57,9 @@ h4 {
 
 }
 
-.elem-icon {
-  width: 2rem;
-  position: relative;
-  left: 8rem;
-  bottom: 1rem;
-}
-
 .name-el {
   height: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .card {
