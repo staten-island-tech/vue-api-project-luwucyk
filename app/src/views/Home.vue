@@ -1,7 +1,7 @@
 <template>
   <div class="character-page">
     
-    <h2>gesnin imapct charctr</h2>
+    <h1>gesnin imapct charctrs</h1>
       <div class="character-list">
         
            <card v-for="chara in charaList" :key="chara" v-bind:value="chara" :charaList=chara :icon="icon[`${charaList.indexOf(`${chara}`)}`]" /> 
@@ -54,7 +54,7 @@ export default {
           
           
       } catch (error) {
-          console.log(error);
+          alert(error);
       }
       
       //character data info thingy idk my brain is falling apart?
@@ -68,8 +68,9 @@ console.log(this.character);
 
 <style >
 html {
-  background-color: black;
-  color:white
+  background-image: url(https://d2ofqe7l47306o.cloudfront.net/games/1920x1200/genshin-impact-ps5-key-art.jpg);
+  background-size: 110%;
+  color:rgb(255, 255, 255)
 
 }
 
@@ -77,6 +78,8 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: linear-gradient(rgba(17, 13, 102, 0.521),rgba(9, 85, 104, 0.582)) ;
+
 }
 
 .character-list {
@@ -88,7 +91,7 @@ html {
 }
 
 .character-card {
-  background-color: rgb(26, 26, 29) ;
+  background-color: rgba(11, 11, 128, 0.555) ;
   display: flex;
   flex-direction: column;
   color: white;

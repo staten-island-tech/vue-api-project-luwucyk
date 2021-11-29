@@ -26,19 +26,7 @@ export default {
 </script>
 
 <style scoped>
-.character-card {
-  background-color: rgb(26, 26, 29) ;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  width: 5rem;
-  height: 6rem;
-  padding: 1.5rem;
-  align-items: center;
-  margin: 2rem;
-  border-radius: 5%;
-  
-}
+
 
 .character-img {
   height: 80%;
@@ -47,6 +35,7 @@ export default {
 .character-name {
   text-transform: capitalize;
   margin-top: 0.5rem;
+  opacity: .7;
 }
 
 </style>

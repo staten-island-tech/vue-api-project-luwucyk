@@ -1,15 +1,37 @@
 <template>
   <div class="info-page">
     <div class="character-details">
-      <div class="name-el">
-        <h4 class="title" >{{character.name}}</h4> 
+      <div class="name-el txtbox">
+        <h4>{{character.name}}</h4> 
         <span class="elem-icon" v-bind:src="character.vision" alt="element">{{character.vision}}</span>
+       <p class="details-text">Affiliation: {{character.affiliation}}</p>
       </div>
-      <div class="aff">Affiliation: {{character.affiliation}}</div>
-    </div>
+
     <div class="character-stats">
-      <div class="constellations"></div>
+
+      <div class="txtbox constellations">
+      <h4>Constellations:</h4>
+      <div class="" v-for="stell in character.constellations" :key="stell.length" v-bind:value="character.constellations">
+        <p class="details-text cons-name title">{{stell.unlock}}: {{stell.name}}</p>
+        <p class="details-text cons-desc">{{stell.description}}</p>
+      </div>
+      </div>
+
+      <div class="txtbox talents">
+      <h4>Talents:</h4>
+      <div class="" v-for="talent in character.skillTalents" :key="talent.length" v-bind:value="character.skillTalents">
+        <p class="details-text talent-name title">{{talent.name}}</p>
+        <p class="details-text talent-desc">{{talent.description}}</p>
+       
+      </div>
+       <img class="bg-img" :key="character" v-bind:src="bg" alt="character splash art">
+      </div>
+
+
     </div>
+
+    </div>
+
     <img class="card" :key="character.length" v-bind:src="img" alt="character icon">
   </div>
 </template>
@@ -20,6 +42,7 @@ export default {
     return {
       character: [`${this.chr}`],
       img: [],
+      bg: [],
     }
   },
   created() {
@@ -32,16 +55,15 @@ export default {
       //icon mcchangerino - charalist is megalist of all charas, then foreach?
         try {
           this.img = `https://api.genshin.dev/characters/${this.character}/card` ;
+          this.bg = `https://api.genshin.dev/characters/${this.character}/gacha-splash` ;
           const response = await fetch(`https://api.genshin.dev/characters/${this.character}`);
           const data = await response.json();
           this.character = data;
-/*           const elem = this.character.vision;
-          this.elIcon = `https://api.genshin.dev/elements/${elem}/icon` */
  
           console.log(this.character);         
           
       } catch (error) {
-          console.log(error);
+          alert(error);
       }
 }
   }}
@@ -49,39 +71,76 @@ export default {
 
 <style scoped>
 h4 {
-  color: white;
+  color: rgb(66, 233, 255);
   margin: 0rem auto;
   size: 2%;
   text-transform: uppercase;
 
 }
 
-.name-el {
-  height: 2rem;
-  margin-bottom: 1.5rem;
+.bg-img {
+  position: fixed;
+  top: 5%;
+  right: 15rem;
+  transform: scale(1.5);
+  z-index: -1;
+  opacity: 1;
 }
 
-.card {
-  width: 50%;
+.title {
+  color: rgb(208, 182, 255);
 }
 
-.info-page {
-  margin: 2rem;
+.character-stats {
   display: flex;
-  align-items: flex-start;
-
-
+  flex-direction: row;
 }
 
-.character-details {
- background-color: rgb(26, 26, 29);
+.constellations {
+  width: 40%;
+}
+
+.talents {
+  width: 60%;
+  overflow: hidden;
+}
+
+.txtbox {
+ margin-bottom: 2rem;
  margin-right: 2rem;
+ background-color: rgba(11, 11, 56, 0.747);
  padding: 1rem;
+ overflow: hidden;
+ height: 70%;
+}
+
+.name-el {
+
  display: flex;
  flex-direction: column;
  width: 25%;
+}
+
+.card {
+  width: 25%;
+
+}
+
+.info-page {
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+background-image: linear-gradient(rgba(17, 13, 102, 0.521),rgba(9, 85, 104, 0.582)) ;
+overflow: hidden;
+}
+
+.character-details {
+ margin-right: 2rem;
+ margin-left: 2rem;
+ width: 70%;
  height: 25%;
  overflow: hidden;
+ 
 }
 
 </style>

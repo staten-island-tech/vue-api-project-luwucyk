@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link class="link" to="/">home</router-link>
+    <router-link class="link" to="/">Home</router-link>
     <router-view/>
       
   </div>
@@ -25,7 +25,9 @@ html, body {
 }
 
 .link {
-  color: rgb(255, 213, 27);
+  color: rgb(0, 255, 255);
+  margin: 1rem;
+  font: bold;
 }
 
 .link:active {
