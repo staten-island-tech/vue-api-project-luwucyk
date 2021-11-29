@@ -20,8 +20,6 @@ export default {
     return {
       character: [`${this.chr}`],
       img: [],
-      elIcon:{Anemo: `https://api.genshin.dev/elements/anemo/icon`,
-      Geo: `https://api.genshin.dev/elements/geo/icon`, },
     }
   },
   created() {
@@ -43,7 +41,7 @@ export default {
           console.log(this.character);         
           
       } catch (error) {
-          console.log('error');
+          console.log(error);
       }
 }
   }}
