@@ -18,7 +18,7 @@
 export default {
   data() {
     return {
-      character: [`kokomi`],
+      character: [`${this.chr}`],
       img: [],
       elIcon:{Anemo: `https://api.genshin.dev/elements/anemo/icon`,
       Geo: `https://api.genshin.dev/elements/geo/icon`, },
@@ -27,6 +27,7 @@ export default {
   created() {
     this.fetchData()
   },
+  props: ['chr'],
   methods: {
     fetchData: async function() {
 
